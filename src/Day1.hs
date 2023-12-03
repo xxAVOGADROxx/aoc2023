@@ -11,11 +11,6 @@ main = interact $ \input ->
         result2 = partTwo linesInput
      in unlines ["Result 1: " ++ show result1, "Result 2: " ++ show result2]
 
---------------------------- FIRST PART ---------------------------
--- firstPart :: IO ()
--- firstPart = do
---     interact $ show . recoverCalibrationNumber . lines
-
 partOne :: [String] -> Integer
 partOne allLines = sum $ getNumberInTextLine <$> allLines
   where
@@ -32,15 +27,6 @@ partOne allLines = sum $ getNumberInTextLine <$> allLines
         | otherwise = getFirstNumber xs
 
 --------------------------- SECOND PART ---------------------------
-
--- secondPart :: IO ()
--- secondPart = do
---     interact $ show . sum . extractNumbers . lines
-
--- extractNumbers :: [String] -> Integer
--- extractNumbers xs =
---     let parse = parseNumbers <$> xs
---      in sum $ (\n -> read (head n ++ last n)) <$> parse
 
 partTwo :: [String] -> Integer
 partTwo xs = sum $ readConcatenated . parseNumbers <$> xs
